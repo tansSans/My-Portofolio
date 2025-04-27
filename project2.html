@@ -1,0 +1,191 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project 2 - Novel Projects</title>
+  <style>
+    body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f6fa;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+
+#bg-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+}
+
+.project-container {
+  max-width: 800px;
+  margin: auto;
+  padding: 2rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: #666;
+  font-size: 1rem;
+}
+
+.project-detail {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.project-detail h2 {
+  margin-top: 0;
+  color: #0056cc;
+}
+
+.project-detail p {
+    text-align: justify;
+}
+
+.novel-reader {
+  background: #fefefe;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  margin-top: 2rem;
+}
+
+.novel-reader h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.novel-reader p {
+  text-align: justify;
+}
+
+.novel-links li {
+  margin: 0.5rem 0;
+}
+
+.novel-links a {
+  color: #0056cc;
+  text-decoration: none;
+}
+
+.novel-links a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+footer a {
+  text-decoration: none;
+  color: #0056cc;
+  font-weight: bold;
+}
+  </style>
+</head>
+<body>
+  <canvas id="bg-canvas"></canvas>
+
+  <div class="project-container">
+    <header>
+      <h1>Novel Projects</h1>
+      <p class="subtitle">Exploring Stories Through Fantasy and Time</p>
+    </header>
+
+    <section class="project-detail">
+      <h2>Blood & Brass</h2>
+      <p>
+        A dark fantasy novel that follows a reborn gunslinger navigating a world filled with danger, magic, and moral ambiguity. The story blends action, mystery, and existential themes in a world where survival comes at a cost.
+      </p>
+    </section>
+
+    <section class="project-detail">
+      <h2>Romansa Waktu</h2>
+      <p>
+        A reflective story about a young protagonist stuck in a loop of repeating days, searching for identity, meaning, and emotional connection. Through each loop, he discovers pieces of himself and those around him, crafting a bittersweet journey of growth and self-discovery.
+      </p>
+    </section>
+
+    <section class="novel-reader">
+      <h3>Read My Novel</h3>
+      <p>I actualy have nom-de-plume wich is "LelanaArka". I use that name just because it's cool, it doesn't have any special meaning.</p>
+      <p>Enjoy preview chapters of my work directly from this website. Click a title to read:</p>
+      
+      <ul class="novel-links">
+        <h4>Blood & Brass</h2>
+        <p>Link: <a href="https://www.wattpad.com/story/389887416?utm_source=android&utm_medium=whatsapp&utm_content=story_info&wp_page=story_details_button&wp_uname=LelanaArka" target="_blank">Blood & Brass - LelanaArka</a></p>
+        <h4>Romansa Waktu</h2>
+        <p>Link: <a href="" target="_blank">Romansa Waktu – LelanaArka</a></p>
+      </ul>
+    </section>
+
+    <footer>
+      <a href="index.html">&larr; Back to Home</a>
+    </footer>
+  </div>
+
+  <script>
+    const canvas = document.getElementById("bg-canvas");
+    const ctx = canvas.getContext("2d");
+    
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    
+    let particles = [];
+    
+    for (let i = 0; i < 100; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 2 + 1,
+        dx: (Math.random() - 0.5) * 0.5,
+        dy: (Math.random() - 0.5) * 0.5
+      });
+    }
+    
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        p.x += p.dx;
+        p.y += p.dy;
+    
+        // Bouncing effect
+        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+    
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = "#ccccff";
+        ctx.fill();
+      });
+    
+      requestAnimationFrame(animate);
+    }
+    
+    animate();
+    
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+    </script>
+</body>
+</html>

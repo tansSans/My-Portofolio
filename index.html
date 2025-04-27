@@ -1,0 +1,417 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sultan Rizky Akbar - Portfolio</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      body {
+        margin: 0;
+        font-family: "Segoe UI", sans-serif;
+        color: #222;
+        background-color: #f4f6fa;
+      }
+
+      #bg-canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        width: 100vw;
+        height: 100vh;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      header.profile {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        margin-bottom: 3rem;
+      }
+
+      .profile-img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 12px;
+      }
+
+      .bio h1 {
+        margin: 0;
+        font-size: 2rem;
+      }
+
+      .bio h2 {
+        margin-top: 0.5rem;
+        font-size: 1.1rem;
+        color: #555;
+      }
+
+      .portfolio h2,
+      footer h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .cards {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .card {
+        flex: 1;
+        min-width: 200px;
+        background: #fff;
+        border: 1px solid #ddd;
+        padding: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      }
+
+      .card h3 {
+        margin: 0 0 0.5rem;
+      }
+
+      .card a {
+        text-decoration: none;
+      }
+
+      .p {
+        text-align: justify;
+      }
+
+      .Achievement {
+        margin-top: 5rem;
+      }
+
+      .Achievement ul {
+        list-style: disc;
+      }
+
+      .Achievement li {
+        text-align: justify;
+      }
+
+      .contact {
+        margin-top: 3rem;
+        padding: 1.5rem;
+        background: #f7f7f7;
+        border-radius: 10px;
+      }
+
+      .contact h2 {
+        margin-bottom: 1rem;
+      }
+
+      .contact ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .contact li {
+        margin: 0.8rem 0;
+        font-size: 1.1rem;
+      }
+
+      .contact i {
+        margin-right: 0.6rem;
+        color: #333;
+      }
+
+      .contact a {
+        text-decoration: none;
+        color: #222;
+      }
+
+      .contact a:hover {
+        color: blue;
+        text-decoration: underline;
+      }
+
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      #backToTop {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 100;
+        font-size: 18px;
+        padding: 12px 16px;
+        background-color: #333;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease;
+      }
+
+      #backToTop:hover {
+        background-color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="bg-canvas"></canvas>
+
+    <div class="container">
+      <header class="profile">
+        <img
+          src="Gambar/Profile.jpeg"
+          alt="Profile picture of Sultan Rizky Akbar"
+          class="profile-img"
+        />
+        <div class="bio">
+          <h1>Sultan Rizky Akbar</h1>
+          <h2>About Me</h2>
+          <p class="p">
+            I’m a student at SMAN 68 Jakarta with a passion for writing, web
+            development, and editing. I enjoy turning ideas into stories,
+            building simple yet functional websites, and refining content to
+            bring out its best. I’m also currently learning Japanese to explore
+            new cultures and broaden my creative perspective.
+          </p>
+        </div>
+      </header>
+
+      <section class="portfolio">
+        <h2>Portfolio</h2>
+        <div class="cards">
+          <div class="card">
+            <h3>Web Development</h3>
+            <p class="p">
+              I've worked on several web projects, including a collaborative
+              website developed with my team for a P5 (Projek Penguatan Profil
+              Pelajar Pancasila), as well as a simple web-based game created to
+              practice interactive front-end development. These projects helped
+              me strengthen both my technical and teamwork skills. <br />
+            </p>
+            <a href="project1.html">Project 1</a>
+          </div>
+          <div class="card">
+            <h3>Novel Projects</h3>
+            <p class="p">
+              Writing allows me to explore imagination, emotion, and complex
+              ideas. Through my novels, I aim to tell stories that resonate
+              deeply. These two projects reflect different sides of my
+              creativity—one dark and gritty, the other introspective and
+              emotional.
+              <br />
+              1. Blood & Brass
+              <br />
+              2. Romansa Waktu
+            </p>
+            <a href="project2.html">Project 2</a>
+          </div>
+          <div class="card">
+            <h3>Editing Video's</h3>
+            <p class="p">
+              Video editing allows me to express stories visually, combining
+              footage, music, and timing into impactful narratives. I’ve edited
+              content for school projects and personal creative work, focusing
+              on rhythm, mood, and clarity. Through each project, I continue
+              refining my technical skills and creative approach to
+              storytelling.
+            </p>
+            <a href="project3.html">Project 3</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="Achievement">
+        <h2>Achievement</h2>
+        <ul>
+          <li>
+            <b
+              >Meraih Medali Perak Nasional Bidang Bahasa Jepang Tingkat
+              SMA/MA/Sederajat</b
+            >. Diselenggarakan oleh Festival Olimpiade Bahasa Nasional II (FOBN
+            II) Tahun 2024. Prisma Cendekia Foundation.
+          </li>
+          <li>
+            <b
+              >Partisipan Lomba Gerakan Pramuka Kwartir Ranting Matraman Tingkat
+              Penggalang</b
+            >. Diselenggarakan oleh Gerakan Pramuka Kwartir Ranting Kecamatan
+            Matraman Kotamadya Jakarta Timur.
+          </li>
+          <li>
+            <b>Meraih Medali Emas Kids Taekwondo Invititation</b>.
+            Diselenggarakan oleh Kids Taekwondo Invititation - Global Prestasi
+            School yang bertempat di Hall B Global Prestasi School.
+          </li>
+          <li>
+            <b
+              >Partisipan Lomba OSN-SD Matematika Tingkat Kecamatan Tahun
+              2018</b
+            >. Diselenggarakan oleh OSN-SD Kecamatan Matraman Kota Administrasi
+            Jakarta Timur.
+          </li>
+          <li>
+            <b>Juara I Pantomim FLS2N Tingkat Kecamatan Tahun 2018</b>.
+            Diselenggarakan oleh FLS2N Tingkat Sekolah Dasar Cabang kecamatan
+            Matraman Kota Administrasi Jakarta Timur.
+          </li>
+          <li>
+            <b>Juara Harapan II Pantomim FLS2N Tingkat Kecamatan Tahun 2017</b>.
+            Diselenggarakan oleh FLS2N Tingkat Sekolah Dasar Cabang kecamatan
+            Matraman Kota Administrasi Jakarta Timur.
+          </li>
+        </ul>
+      </section>
+
+      <section class="contact">
+        <h2>Contact</h2>
+        <ul>
+          <li>
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:rizkyakbarsultan@gmail.com"
+              >rizkyakbarsultan@gmail.com</a
+            >
+          </li>
+          <li>
+            <i class="fab fa-instagram"></i>
+            <a href="https://www.instagram.com/tans_sans/" target="_blank"
+              >@tans_sans</a
+            >
+          </li>
+          <li>
+            <i class="fab fa-youtube"></i>
+            <a href="https://www.youtube.com/@SRA-do5ku" target="_blank"
+              >Tans_Sans</a
+            >
+          </li>
+        </ul>
+      </section>
+
+      <button id="backToTop" title="Back to Top">↑</button>
+    </div>
+    <section class="fade-in">
+      <!-- Konten -->
+    </section>
+
+    <script>
+      function revealOnScroll() {
+        const fadeEls = document.querySelectorAll(".fade-in");
+
+        fadeEls.forEach((el) => {
+          const rect = el.getBoundingClientRect();
+          const isVisible = rect.top < window.innerHeight - 100;
+
+          if (isVisible) {
+            el.classList.add("visible");
+          }
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", revealOnScroll);
+      window.addEventListener("scroll", revealOnScroll);
+    </script>
+
+    <script>
+      // Animasi fade-in saat halaman dimuat
+      document.addEventListener("DOMContentLoaded", () => {
+        const fadeElements = document.querySelectorAll(".fade-in");
+
+        fadeElements.forEach((el) => {
+          setTimeout(() => {
+            el.classList.add("visible");
+          }, 200);
+        });
+      });
+    </script>
+
+    <script>
+      const canvas = document.getElementById("bg-canvas");
+      const ctx = canvas.getContext("2d");
+
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      let particles = [];
+
+      for (let i = 0; i < 100; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          radius: Math.random() * 2 + 1,
+          dx: (Math.random() - 0.5) * 0.5,
+          dy: (Math.random() - 0.5) * 0.5,
+        });
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach((p) => {
+          p.x += p.dx;
+          p.y += p.dy;
+
+          // Bouncing effect
+          if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+          if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fillStyle = "#ccccff";
+          ctx.fill();
+        });
+
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+
+      window.addEventListener("resize", () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      });
+    </script>
+
+    <script>
+      const backToTopBtn = document.getElementById("backToTop");
+
+      window.onscroll = () => {
+        if (
+          document.body.scrollTop > 200 ||
+          document.documentElement.scrollTop > 200
+        ) {
+          backToTopBtn.style.display = "block";
+        } else {
+          backToTopBtn.style.display = "none";
+        }
+      };
+
+      backToTopBtn.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+    </script>
+  </body>
+</html>

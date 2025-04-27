@@ -1,0 +1,162 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project 1 - Web Development</title>
+  <style>
+    body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f6fa;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+
+#bg-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+}
+
+.project-container {
+  max-width: 800px;
+  margin: auto;
+  padding: 2rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: #666;
+  font-size: 1rem;
+}
+
+.project-detail a {
+  text-decoration: none;
+}
+
+.project-detail {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.project-detail h2 {
+  margin-top: 0;
+  color: #0056cc;
+}
+
+.project-detail p {
+    text-align: justify;
+}
+
+footer {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+footer a {
+  text-decoration: none;
+  color: #0056cc;
+  font-weight: bold;
+}
+  </style>
+</head>
+<body>
+    <canvas id="bg-canvas"></canvas>
+
+  <div class="project-container">
+    <header>
+      <h1>Editing Video's Project</h1>
+      <p class="subtitle">Exploring & creativity</p>
+    </header>
+
+    <section class="project-detail">
+      <h2>Adventur in the wonderful seaworld | Cinematic Video</h2>
+      <p>
+        Cinematic project with a sea theme where many fish swim there. With a beautiful sea nuance and balanced with stunning visuals and audio. You can watch it in the link below.
+      </p>
+      <a href="https://www.youtube.com/watch?v=HGwuCqxUak8">Link Youtube</a>
+    </section>
+
+    <section class="project-detail">
+      <h2>Sejarah Peradaban Tiongkok Kuno</h2>
+      <p>
+        This video discusses Ancient Chinese History. In the video there is a brief explanation of ancient Chinese history. With simple visuals and clear dubbing and stunning backsound. These three things create a video with a simple but impressive feel. You can watch it in the link below. 
+      </p>
+      <a href="https://www.youtube.com/watch?v=_AM-jMm9FzQ&t=134s">Link Youtube</a>
+    </section>
+
+    <section class="project-detail">
+        <h2>Sejarah Revolusi Prancis, "Liberté, Égalité, Fraternité"</h2>
+        <p>
+            This video explains the history of the French revolution, one of the greatest revolutions in the world. with a complete explanation of each series of events. wrapped in tense visuals and audio. accompanied by classical music backsound adds to the excitement when watching. You can watch it in the link below. 
+        </p>
+        <a href="https://www.youtube.com/watch?v=Pf3DRlPhqLU&t=4s">Link Youtube</a>
+      </section>
+
+    <footer>
+      <a href="index.html">&larr; Back to Home</a>
+    </footer>
+  </div>
+
+  <script>
+    const canvas = document.getElementById("bg-canvas");
+    const ctx = canvas.getContext("2d");
+    
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    
+    let particles = [];
+    
+    for (let i = 0; i < 100; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 2 + 1,
+        dx: (Math.random() - 0.5) * 0.5,
+        dy: (Math.random() - 0.5) * 0.5
+      });
+    }
+    
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        p.x += p.dx;
+        p.y += p.dy;
+    
+        // Bouncing effect
+        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+    
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = "#ccccff";
+        ctx.fill();
+      });
+    
+      requestAnimationFrame(animate);
+    }
+    
+    animate();
+    
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+    </script>
+</body>
+</html>
