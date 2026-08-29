@@ -1,0 +1,213 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project 4 - Drawing</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background-color: #f5f5f5;
+    }
+
+    #bg-canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    header {
+        text-align: center;
+         margin-bottom: 2rem;
+    }
+
+    header h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .h2 {
+      text-align: center;
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+
+    .subtitle {
+        color: #666;
+        font-size: 1rem;
+    }
+
+    .gallery-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .gallery-item {
+      width: calc(33.333% - 1rem);
+      background: #fff;
+      padding: 0.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.03);
+    }
+
+    footer {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+footer a {
+  text-decoration: none;
+  color: #0056cc;
+  font-weight: bold;
+}
+
+    @media (max-width: 768px) {
+      .gallery-item {
+        width: calc(50% - 1rem);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-item {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+    <canvas id="bg-canvas"></canvas>
+    <header>
+        <h1>My Fotography Work</h1>
+        <p class="subtitle">Tghe beautiful Rule of Thirds</p>
+    </header>
+
+    <div>
+      <h2 class="h2">--- Land Scape ---</h2>
+    </div>
+
+  <div class="gallery-container">
+    <div class="gallery-item">
+      <img src="Gambar/Arum Jeram.jpg" alt="Arum Jeram">
+    </div>
+    <div class="gallery-item">
+      <img src="Gambar/Dialog of 4 people.jpg" alt="Dialog of 4 people">
+    </div>
+    <div class="gallery-item">
+      <img src="Gambar/FNGEEN 2111 Quartz.jpg" alt="FNGEEN 2111 Quartz">
+      <div class="gallery-item">
+      <img src="Gambar/Hotel Davinci.jpg" alt="Hotel Davinci">
+      <div class="gallery-item">
+      <img src="Gambar/Intiland.jpg" alt="Intiland">
+      <div class="gallery-item">
+      <img src="Gambar/Kumbang.jpg" alt="Kumbang">
+      <div class="gallery-item">
+      <img src="Gambar/People climb mountains.jpg" alt="People climb mountains">
+      <div class="gallery-item">
+      <img src="Gambar/People on Rappelling.jpg" alt="People on Rappelling">
+      <div class="gallery-item">
+      <img src="Gambar/POV Kota Bogor dari 1000 MDPL.heic" alt="POV Kota Bogor dari 1000 MDPL">
+      <div class="gallery-item">
+      <img src="Gambar/Ruang Kelas Saat Malam.heic" alt="Ruang Kelas Saat Malam">
+      <div class="gallery-item">
+      <img src="Gambar/Rubik GAN.jpg" alt="Rubik GAN">
+      <div class="gallery-item">
+      <img src="Gambar/Silverqueen.png" alt="Silverqueen">
+      <div class="gallery-item">
+      <img src="Gambar/Stella Pocket.jpg" alt="Stella">
+      <div class="gallery-item">
+      <img src="Gambar/Suasana Hujan.heic" alt="Suasana Hujan">
+      <div class="gallery-item">
+      <img src="Gambar/Sunset di Jakarta.jpg" alt="Sunset di Jakarta">
+      <div class="gallery-item">
+      <img src="Gambar/Terik Sore.jpg" alt="Terik Sore">
+    </div>
+  </div>
+
+  <div>
+      <h2 class="h2">--- Digital Art ---</h2>
+    </div>
+
+  <div class="gallery-container">
+    <div class="gallery-item">
+      <img src="Gambar/Cool Samurai.jpg" alt="Cool Samurai">
+      <div class="gallery-item">
+      <img src="Gambar/Creepy Nightmare.jpg" alt="Creepy Nightmare">
+      <div class="gallery-item">
+      <img src="Gambar/Insto.png" alt="Insto">
+      <div class="gallery-item">
+      <img src="Gambar/Kilau Matahari.jpg" alt="Kilau Matahari">
+      <div class="gallery-item">
+      <img src="Gambar/People on Climb.jpg" alt="People on Climb">
+    </div>
+  </div>
+
+   <footer>
+      <a href="index.html">&larr; Back to Home</a>
+    </footer>
+  </div>
+
+  <script>
+    const canvas = document.getElementById("bg-canvas");
+    const ctx = canvas.getContext("2d");
+    
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    
+    let particles = [];
+    
+    for (let i = 0; i < 100; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 2 + 1,
+        dx: (Math.random() - 0.5) * 0.5,
+        dy: (Math.random() - 0.5) * 0.5
+      });
+    }
+    
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        p.x += p.dx;
+        p.y += p.dy;
+    
+        // Bouncing effect
+        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+    
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = "#ccccff";
+        ctx.fill();
+      });
+    
+      requestAnimationFrame(animate);
+    }
+    
+    animate();
+    
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+    </script>
+</body>
+</html>
