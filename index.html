@@ -106,14 +106,86 @@
           margin-bottom: 10px;
       }
 
-      .button {
-        margin-top: 10px;
-        margin-bottom: 10px;
-      }
-
       .space {
           margin-top: 20px;
       }
+
+        .button1 {
+        padding: 6px 12px;
+        border: none;
+        border-radius: 6px;
+        font-size: 12px;
+        margin: 5px;
+        cursor: pointer;
+      }
+
+        .modal {
+          display: none;
+          position: fixed;
+          z-index: 1000;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          overflow-y: auto;
+          padding: 50px 20px;
+          background-color: rgba(0, 0, 0, 0.7);
+          box-sizing: border-box;
+        }
+
+        .modal-content {
+          position: relative;
+          background-color: #fff;
+          margin: auto;
+          padding: 30px;
+          width: 90%;
+          max-width: 1000px;
+          border-radius: 12px;
+          box-sizing: border-box;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .documentation-gallery img {
+          width: 100%;
+          aspect-ratio: 4 / 3;
+          object-fit: cover;
+          border-radius: 8px;
+        }
+
+        .close {
+          position: absolute;
+          top: 10px;
+          right: 18px;
+          font-size: 30px;
+          font-weight: bold;
+          cursor: pointer;
+          color: #555;
+        }
+
+        .close:hover {
+          color: #000;
+        }
+
+
+        .documentation-gallery {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 15px;
+          margin-top: 20px;
+        }
+
+
+        .documentation-gallery img {
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+          border-radius: 8px;
+          display: block;
+          transition: transform 0.2s ease;
+        }
+
+        .documentation-gallery img:hover {
+          transform: scale(1.03);
+        }
 
       .contact {
         margin-top: 3rem;
@@ -374,39 +446,99 @@
               <li><b>Steering Committee - Shokai | Jacusie SMAN 68</b> <br> <i>18 Juni 2025</i> 
                 <ul>
                   <li>Memberikan arahan, masukan, dan pengawasan kepada panitia selama proses persiapan dan pelaksanaan acara.</li>
-                </ul>
-                Link Dokumentasi - 
+                </ul> <br>
+                  <button class="button1 modalBtn" data-modal="modal1">
+                  - Dokumentasi -
+                  </button>
                 </li> <br>
                 <li><b>Ketua Pelaksana - Qurban | Rohis SMAN 68</b> <br> <i>7 Juni 2025</i>
                   <ul>
                     <li>Memimpin koordinasi panitia dan mengawasi keseluruhan proses persiapan hingga pelaksanaan kegiatan.</li>
                     <li>Mengatur pembagian tugas serta memastikan kegiatan berjalan sesuai rencana.</li>
-                  </ul>
-                  Link Dokumentasi -
+                  </ul> <br>
+                  <button class="button2 modalBtn" data-modal="modal2">
+                  - Dokumentasi -
+                  </button>
                 </li> <br>
                 <li><b>Staff Sie. Kreatif - Sandan | Rohis SMAN 68</b> <br> <i>19-21 Maret 2025</i>
                   <ul>
                     <li>Berkontribusi dalam pengembangan konsep kreatif dan kebutuhan visual kegiatan.</li>
                     <li>Berkoordinasi dengan divisi lain untuk mendukung kebutuhan kreatif acara.</li>
-                  </ul>
-                  Link Dokumentasi -
+                  </ul> <br>
+                  <button class="button3 modalBtn" data-modal="modal3">
+                  - Dokumentasi -
+                  </button>
                 </li> <br>
                 <li><b>PJ Sie. Acara - Family Camp | Elpala SMAN 68</b> <br> <i>16-18 Januari 2025</i>
                   <ul>
                     <li>Bertanggung jawab atas perencanaan dan pelaksanaan rangkaian acara Family Camp.</li>
                     <li>Mengatur alur kegiatan dan berkoordinasi dengan panitia agar pelaksanaan sesuai rundown.</li>
-                  </ul>
-                  Link Dokumentasi -
+                  </ul> <br>
+                  <button class="button4 modalBtn" data-modal="modal4">
+                  - Dokumentasi -
+                  </button>
                 </li> <br>
                 <li><b>Master of Ceremony (MC) - Elpala`s Day | Elpala SMAN 68</b> <br> <i>28 Januari 2024</i>
                   <ul>
                     <li>Memandu seluruh rangkaian acara dan memastikan transisi antarsegmen berjalan lancar.</li>
                     <li>Berkoordinasi dengan panitia dan pengisi acara selama kegiatan berlangsung.</li>
                   </ul>
-                  Link Dokumentasi -
+                  <button class="button5 modalBtn" data-modal="modal5">
+                  - Dokumentasi -
+                  </button>
                 </li> 
             </ul>
         </div>
+
+       <div id="modal1" class="modal">
+          <div class="modal-content">
+              <span class="close">&times;</span>
+              <h2>Dokumentasi Shokai</h2>
+              <div class="documentation-gallery">
+            <img src="foto1.jpg" alt="Dokumentasi 1">
+          </div>
+        </div>
+      </div>
+
+      <div id="modal2" class="modal">
+          <div class="modal-content">
+              <span class="close">&times;</span>
+              <h2>Dokumentasi Qurban</h2>
+              <div class="documentation-gallery">
+            <img src="foto1.jpg" alt="Dokumentasi 1">
+          </div>
+        </div>
+      </div>
+
+      <div id="modal3" class="modal">
+          <div class="modal-content">
+              <span class="close">&times;</span>
+              <h2>Dokumentasi Sandam</h2>
+              <div class="documentation-gallery">
+            <img src="foto1.jpg" alt="Dokumentasi 1">
+          </div>
+        </div>
+      </div>
+
+      <div id="modal4" class="modal">
+          <div class="modal-content">
+              <span class="close">&times;</span>
+              <h2>Dokumentasi Family Camp</h2>
+              <div class="documentation-gallery">
+            <img src="foto1.jpg" alt="Dokumentasi 1">
+          </div>
+        </div>
+      </div>
+
+      <div id="modal4" class="modal">
+          <div class="modal-content">
+              <span class="close">&times;</span>
+              <h2>Dokumentasi Elpala's Day</h2>
+              <div class="documentation-gallery">
+            <img src="foto1.jpg" alt="Dokumentasi 1">
+          </div>
+        </div>
+      </div>
          </section>
 
       <section class="contact">
@@ -438,6 +570,32 @@
     <section class="fade-in">
       <!-- Konten -->
     </section>
+
+    <script>
+    var buttons = document.querySelectorAll(".modalBtn");
+    var closes = document.querySelectorAll(".close");
+
+  buttons.forEach(function (button) {
+    button.onclick = function () {
+
+      var modalId = button.getAttribute("data-modal");
+
+      document.getElementById(modalId).style.display = "block";
+    };
+  });
+
+  closes.forEach(function (close) {
+    close.onclick = function () {
+      close.closest(".modal").style.display = "none";
+    };
+  });
+
+  window.onclick = function (event) {
+    if (event.target.classList.contains("modal")) {
+      event.target.style.display = "none";
+    }
+  };
+</script>
 
     <script>
       function revealOnScroll() {
